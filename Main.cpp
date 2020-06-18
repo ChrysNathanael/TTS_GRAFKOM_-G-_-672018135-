@@ -1,67 +1,45 @@
 #include <iostream>
 #include <GL/freeglut.h>
 
+int x = 0;
+int y = 0;
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	glColor3f(1, 1, 1);
-	glBegin(GL_POLYGON);
-	glVertex2f(0, 60); //kiri bawah
-	glVertex2f(0, 0);//titik kiri atas
-	glVertex2f(60, 60);//kanan bawah
-	glVertex2f(60, 0);//kanan atas
-	glEnd();
+	for (int i = 0; i <= 5; i++) {
+		x = 0;
+		for (int r = 0; r <= 5; r++) {
+			
+			glPointSize(70);
+			glBegin(GL_POINTS);
+			glColor3f(0, 0, 0);
+			glVertex2f(40 + x, 40 + y);
+			glEnd();
 
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(1, 1, 1);
-	glVertex2f(250, 250);
-	glEnd();
+			glPointSize(70);
+			glBegin(GL_POINTS);
+			glColor3f(1, 1, 1);
+			glVertex2f(110 + x, 40 + y);
+			glEnd();
 
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(0, 0, 0);
-	glVertex2f(180, 250);
-	glEnd();
+			glPointSize(70);
+			glBegin(GL_POINTS);
+			glColor3f(0, 0, 0);
+			glVertex2f(110 + x, 110 + y);
+			glEnd();
 
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(0, 0, 0);
-	glVertex2f(250, 320);
-	glEnd();
+			glPointSize(70);
+			glBegin(GL_POINTS);
+			glColor3f(1, 1, 1);
+			glVertex2f(40 + x, 110 + y);
+			glEnd();
 
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(1, 1, 1);
-	glVertex2f(180, 320);
-	glEnd();
 
-	//kotak2
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(1, 1, 1);
-	glVertex2f(110, 250);
-	glEnd();
-
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(0, 0, 0);
-	glVertex2f(40, 250);
-	glEnd();
-
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(0, 0, 0);
-	glVertex2f(110, 320);
-	glEnd();
-
-	glPointSize(70);
-	glBegin(GL_POINTS);
-	glColor3f(1, 1, 1);
-	glVertex2f(40, 320);
-	glEnd();
-	glFlush();
+			x += 145;
+		}
+		y += 143;
+	}
 	glutSwapBuffers();
 }
 
@@ -77,10 +55,10 @@ void myinit() {
 
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(0, 0);
-	glutCreateWindow("Points");
+	glutCreateWindow("Made By 672018135");
 	glutDisplayFunc(display);
 
 	myinit();
